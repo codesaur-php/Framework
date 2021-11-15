@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Dashboard;
+namespace Dashboard;
 
 use Raptor\Exception\ErrorHandler;
 use Raptor\Authentication\SessionMiddleware;

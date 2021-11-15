@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Blog\Home;
+namespace Blog\Home;
 
 use codesaur\Router\Router;
 

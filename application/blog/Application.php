@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Blog;
+namespace Blog;
 
 use codesaur\Http\Application\ExceptionHandler;
 

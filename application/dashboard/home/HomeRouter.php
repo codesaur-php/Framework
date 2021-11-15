@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Dashboard\Home;
+namespace Dashboard\Home;
 
 use codesaur\Router\Router;
 

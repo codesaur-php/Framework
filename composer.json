@@ -17,11 +17,11 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\Blog\\": "application/blog",
-            "App\\Blog\\Home\\": "application/blog/home",
-            "App\\Indo\\": "application/indo",
-            "App\\Dashboard\\": "application/dashboard",
-            "App\\Dashboard\\Home\\": "application/dashboard/home"
+            "Blog\\": "application/blog",
+            "Blog\\Home\\": "application/blog/home",
+            "Indo\\": "application/indo",
+            "Dashboard\\": "application/dashboard",
+            "Dashboard\\Home\\": "application/dashboard/home"
         }
     },
     "scripts": {
