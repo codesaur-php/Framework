@@ -13,7 +13,7 @@
     ],
     "require": {
         "vlucas/phpdotenv": "5.4.x-dev",
-        "codesaur/raptor": ">=1.0.7"
+        "codesaur/raptor": ">=1.0.8"
     },
     "autoload": {
         "psr-4": {
