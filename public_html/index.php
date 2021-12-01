@@ -19,9 +19,7 @@ if (empty($uri_path)) {
 $pipe = explode('/', $uri_path)[1];
 if ($pipe == 'indo') {
     $script_path .= "/$pipe";    
-    $application = new Indo\Application();
-    $application->use(new Indoraptor\IndoExceptionHandler());
-    $application->use(new Indoraptor\JsonResponseMiddleware());
+    $application = new Indo\Application(true);
 } else {
     if ($pipe == 'dashboard') {
         $script_path .= "/$pipe";
@@ -29,7 +27,7 @@ if ($pipe == 'indo') {
     } else {
         $application = new Blog\Application();
     }
-    $request = $request->withAttribute('indo', new Indo\Application());
+    $request = $request->withAttribute('indo', new Indo\Application(false));
 }
 $request->setScriptTargetPath($script_path);
 

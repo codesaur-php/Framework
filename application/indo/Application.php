@@ -2,14 +2,10 @@
 
 namespace Indo;
 
-use Indoraptor\PDOConnectMiddleware;
-
 class Application extends \Indoraptor\IndoApplication
 {
-    function __construct()
+    function __construct(bool $is_application_json)
     {
-        parent::__construct();
-        
-        $this->use(new PDOConnectMiddleware());
+        parent::__construct($is_application_json);
     }
 }
