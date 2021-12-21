@@ -49,8 +49,8 @@ if (!function_exists('codesaur_bootstrap')) {
                     $env = false;
                 }
             }
-        } catch (Throwable $th) {
-            die("codesaur exit: <strong>{$th->getMessage()}</strong>");
+        } catch (Throwable $e) {
+            die("codesaur exit: <strong>{$e->getMessage()}</strong>");
         }
 
         define('CODESAUR_DEVELOPMENT', isset($_ENV['CODESAUR_APP_ENV']) ? $_ENV['CODESAUR_APP_ENV'] != 'production' : false);
