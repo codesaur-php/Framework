@@ -8,6 +8,6 @@ class HomeController extends DashboardController
 {
     public function index()
     {
-        $this->twigDashboard($this->text('home'))->render();
+        $this->twigDashboard(dirname(__FILE__) . '/home.html')->render();
     }
 }
