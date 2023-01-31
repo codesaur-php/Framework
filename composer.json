@@ -1,19 +1,18 @@
 {
     "name": "codesaur/framework",
     "type": "project",
-    "description": "An elegant object-oriented application development framework for PHP 7.2 or newer",
-    "keywords": ["codesaur","mongol","mongolia","mongolian","ololt","framework","narankhuu","coden","php framework","php","кодзавр","монгол","ололт","мөнхийн","мөнхийн-ололт","мөнхийн ололт","наранхүү","коден","munkhiin ololt","ерөнхий бүтэц","фреймворк","raptor","velociraptor","indoraptor","swift seizer","mongoliensis","12fingers"],
-    "homepage": "https://ololt.mn/codesaur",
+    "description": "An elegant object-oriented application development framework for PHP 8.2.1 or newer",
+    "keywords": ["framework", "ерөнхий бүтэц", "фреймворк", "velociraptor", "indoraptor", "raptor", "application", "http application", "router", "server request handler", "psr-3", "psr-7", "psr-15", "mongol", "mongolia", "mongolian", "монгол", "codesaur", "кодзавр", "narankhuu", "наранхүү", "ololt", "ололт", "мөнхийн ололт", "munkhiin ololt"],
+    "homepage": "https://github.com/codesaur-php",
     "authors": [
         {
             "name": "Narankhuu",
-            "email": "codesaur@gmail.com",
-            "homepage": "https://ololt.mn/narankhuu"
+            "email": "codesaur@gmail.com"
         }
     ],
     "require": {
-        "vlucas/phpdotenv": "5.4.x-dev",
-        "codesaur/raptor": ">=1.4.3"
+        "vlucas/phpdotenv": ">=5.5.0",
+        "codesaur/raptor": ">=1.5.0"
     },
     "autoload": {
         "psr-4": {

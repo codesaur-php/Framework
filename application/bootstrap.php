@@ -1,16 +1,16 @@
-<?php version_compare(PHP_VERSION, '7.2', '>=') || die('codesaur need PHP 7.2 or newer.');
+<?php
 
 if (!function_exists('codesaur_error_log')) {
     function codesaur_error_log($errno, $errstr, $errfile, $errline)
     {
         switch ($errno) {
-            case E_USER_ERROR:
+            case \E_USER_ERROR:
                 error_log("Error: $errstr \n Fatal error on line $errline in file $errfile \n");
                 break;
-            case E_USER_WARNING:
+            case \E_USER_WARNING:
                 error_log("Warning: $errstr \n in $errfile on line $errline \n");
                 break;
-            case E_USER_NOTICE:
+            case \E_USER_NOTICE:
                 error_log("Notice: $errstr \n in $errfile on line $errline \n");
                 break;
             default:
@@ -27,7 +27,7 @@ if (!function_exists('codesaur_error_log')) {
 if (!function_exists('codesaur_bootstrap')) {
     function codesaur_bootstrap()
     {
-        error_reporting(E_ALL & ~E_STRICT & ~E_NOTICE);
+        error_reporting(\E_ALL & ~\E_STRICT & ~\E_NOTICE);
 
         $this_dir = dirname(__FILE__);
         $autoload = "$this_dir/../vendor/autoload.php";
@@ -49,7 +49,7 @@ if (!function_exists('codesaur_bootstrap')) {
                     $env = false;
                 }
             }
-        } catch (Throwable $e) {
+        } catch (\Throwable $e) {
             die("codesaur exit: <strong>{$e->getMessage()}</strong>");
         }
 

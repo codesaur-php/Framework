@@ -6,7 +6,7 @@ use codesaur\Http\Application\ExceptionHandler;
 
 class Application extends \codesaur\Http\Application\Application
 {
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
         
