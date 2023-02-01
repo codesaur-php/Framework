@@ -27,7 +27,7 @@ if (!function_exists('codesaur_error_log')) {
 if (!function_exists('codesaur_bootstrap')) {
     function codesaur_bootstrap()
     {
-        error_reporting(\E_ALL & ~\E_STRICT & ~\E_NOTICE);
+        error_reporting(\E_ALL);
 
         $this_dir = dirname(__FILE__);
         $autoload = "$this_dir/../vendor/autoload.php";
