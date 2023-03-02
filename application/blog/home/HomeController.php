@@ -2,7 +2,7 @@
 
 namespace Blog\Home;
 
-use codesaur\Http\Application\Controller;
+use Raptor\Controller;
 
 class HomeController extends Controller
 {
