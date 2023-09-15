@@ -165,9 +165,14 @@ class MailerController extends \Indoraptor\IndoController
             }
 
             $mail = new IndoMail();
+            if (!empty($payload['from'])) {
+                $mail->setFrom($payload['from'], $payload['from_name'] ?? '');
+            }
+            if (!empty($payload['reply_to'])) {
+                $mail->setReplyTo($payload['reply_to'], $payload['reply_to_name'] ?? '');
+            }
             $mail->setSubject($payload['subject']);
             $mail->setMessage($payload['message']);
-
             if (isset($payload['to'])) {
                 $mail->targetTo($payload['to'], $payload['name'] ?? '');
             }
