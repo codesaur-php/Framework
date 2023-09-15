@@ -133,7 +133,7 @@ class IndoMail extends Mail
             $options['attachment'] = [];
             foreach ($attachments as $attachment) {
                 if (isset($attachment['path'])) {
-                    throw new \Exception("Brevo's SendSmtpEmai doesn't support local file!");
+                    throw new \Exception("Brevo's SendSmtpEmail doesn't support local file!");
                 } elseif (isset($attachment['url'])) {
                     $options['attachment'] = ['url' => $attachment['url'], 'name' => $attachment['name']];
                 } elseif (isset($attachment['content'])) {
