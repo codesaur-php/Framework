@@ -12,13 +12,16 @@
     ],
     "require": {
         "vlucas/phpdotenv": ">=5.5.0",
-        "codesaur/raptor": ">=1.6.3"
+        "codesaur/raptor": ">=1.7.2",
+        "phpmailer/phpmailer": ">=6.8.0",
+        "getbrevo/brevo-php": ">=1.0.2"
     },
     "autoload": {
         "psr-4": {
             "Blog\\": "application/blog",
             "Blog\\Home\\": "application/blog/home",
             "Indo\\": "application/indo",
+            "Indo\\Mail\\": "application/indo/mail",
             "Dashboard\\": "application/dashboard",
             "Dashboard\\Home\\": "application/dashboard/home"
         }
