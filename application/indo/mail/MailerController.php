@@ -79,16 +79,13 @@ class IndoMail extends Mail
             $mailer->addBCC($bcc['email'], $bcc['name'] ?? '');
         }
 
-        $attachments = $this->getAttachments();
-        if (!empty($attachments)) {
-            foreach ($attachments as $attachment) {
-                if (isset($attachment['path'])) {
-                    $mailer->addAttachment($attachment['path'], $attachment['name']);
-                } elseif (isset($attachment['url'])) {
-                    throw new \Exception('Explicitly *does not* support passing URLs; PHPMailer is not an HTTP client.');
-                } elseif (isset($attachment['content'])) {
-                    $mailer->addStringAttachment($attachment['content'], $attachment['name']);
-                }
+        foreach ($this->getAttachments() as $attachment) {
+            if (isset($attachment['path'])) {
+                $mailer->addAttachment($attachment['path'], $attachment['name']);
+            } elseif (isset($attachment['url'])) {
+                throw new \Exception('Explicitly *does not* support passing URLs; PHPMailer is not an HTTP client.');
+            } elseif (isset($attachment['content'])) {
+                $mailer->addStringAttachment($attachment['content'], $attachment['name']);
             }
         }
 
@@ -111,11 +108,16 @@ class IndoMail extends Mail
         $options = [
             'subject' => $this->subject,
             'htmlContent' => $this->message,
-            'to' => $this->getRecipients('To'),
-            'cc' => $this->getRecipients('Cc'),
-            'bcc' => $this->getRecipients('Bcc')
+            'to' => $this->getRecipients('To')
         ];
-        
+        $cc = $this->getRecipients('Cc');
+        if (!empty($cc)) {
+            $options['cc'] = $cc;
+        }
+        $bcc = $this->getRecipients('Bcc');
+        if (!empty($bcc)) {
+            $options['bcc'] = $bcc;
+        }        
         if (!empty($this->fromName)) {
             $options['sender'] = ['name' => $this->fromName, 'email' => $this->from];
         } else {
@@ -128,20 +130,21 @@ class IndoMail extends Mail
                 $options['replyTo'] = ['email' => $this->replyTo];
             }
         }
-        $attachments = $this->getAttachments();
-        if (!empty($attachments)) {
-            $options['attachment'] = [];
-            foreach ($attachments as $attachment) {
-                if (isset($attachment['path'])) {
-                    throw new \Exception("Brevo's SendSmtpEmail doesn't support local file!");
-                } elseif (isset($attachment['url'])) {
-                    $options['attachment'] = ['url' => $attachment['url'], 'name' => $attachment['name']];
-                } elseif (isset($attachment['content'])) {
-                    $options['attachment'] = ['content' => $attachment['content'], 'name' => $attachment['name']];
-                }
+        
+        $attachments = [];
+        foreach ($this->getAttachments() as $attachment) {
+            if (isset($attachment['path'])) {
+                throw new \Exception("Brevo's SendSmtpEmail doesn't support local file!");
+            } elseif (isset($attachment['url'])) {
+                $attachments[] = ['url' => $attachment['url'], 'name' => $attachment['name']];
+            } elseif (isset($attachment['content'])) {
+                $attachments[] = ['content' => $attachment['content'], 'name' => $attachment['name']];
             }
         }
-
+        if (!empty($attachments)) {
+            $options['attachment'] = $attachments;
+        }
+        
         $sendSmtpEmail = new SendSmtpEmail($options);
         return (array) $apiInstance->sendTransacEmail($sendSmtpEmail);
     }
@@ -200,11 +203,15 @@ class MailerController extends \Indoraptor\IndoController
                 }
             }
             
+            // -> U r using PHP mail() function
             if (!$mail->send()) {
-            // OR u can use SMTP email send via PHPMailer
-            // if (!$mail->sendSMTP()) {
-            // OR u can use Brevo's transactional email API
-            // if (empty($mail->sendBrevoTransactional())) {
+            //
+            // -> OR u can use SMTP email send via PHPMailer
+            //if (!$mail->sendSMTP()) {
+            //
+            // -> OR u can use Brevo's transactional email API
+            //$context['brevo-result'] = $mail->sendBrevoTransactional();
+            //if (empty($context['brevo-result'])) {
                 throw new \RuntimeException('Email sending failed!');
             }
 
