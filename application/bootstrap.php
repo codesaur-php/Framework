@@ -40,7 +40,7 @@ if (!\function_exists('codesaur_bootstrap')) {
         \ini_set('error_log', "$this_dir/../logs/code.log");
 
         try {
-            $dotenv = Dotenv\Dotenv::createImmutable("$this_dir/..");
+            $dotenv = \Dotenv\Dotenv::createImmutable("$this_dir/..");
             $dotenv->load();
             foreach ($_ENV as &$env) {
                 if ($env == 'true') {
