@@ -1,4 +1,4 @@
-{
+`{
     "name": "codesaur/framework",
     "type": "project",
     "description": "An elegant object-oriented application development framework for PHP 8.2.1 or newer",
@@ -12,7 +12,7 @@
     ],
     "require": {
         "vlucas/phpdotenv": ">=5.5.0",
-        "codesaur/raptor": ">=10.0.0",
+        "codesaur/raptor": ">=11.0.0",
         "phpmailer/phpmailer": ">=6.8.0",
         "getbrevo/brevo-php": ">=1.0.2"
     },
