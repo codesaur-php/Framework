@@ -34,7 +34,7 @@ try {
         case \E_USER_ERROR: $error = 'Fatal error'; break;
         case \E_USER_WARNING: $error = 'Warning'; break;
         case \E_USER_NOTICE: $error = 'Notice'; break;
-        default: $error = 'Unknown error '; break;
+        default: $error = 'Unknown error'; break;
     }
     \error_log("$error #$errno: $errstr in $errfile on line $errline");
     return true;
