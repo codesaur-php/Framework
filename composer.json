@@ -12,7 +12,7 @@
     ],
     "require": {
         "vlucas/phpdotenv": ">=5.5.0",
-        "codesaur/raptor": ">=11.1.6",
+        "codesaur/raptor": ">=11.1.7",
         "phpmailer/phpmailer": ">=6.8.0",
         "getbrevo/brevo-php": ">=1.0.2"
     },
