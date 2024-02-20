@@ -1,5 +1,3 @@
-/public_html/assets/*
-!/public_html/assets/.htaccess
 /public_html/public/*
 !/public_html/public/.htaccess
 /private/*
