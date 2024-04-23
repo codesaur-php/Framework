@@ -12,6 +12,5 @@ function getGreeting() {
         return "Good morning";
     }
 }
-document.getElementById("hello").innerHTML = getGreeting() + " <strong>{{ user.getAccount()['first_name'] }}</strong>.<br/>Welcome to codesaur framework!";
+document.getElementById("hello").innerHTML = `${getGreeting()} <strong>{{ user.getAccount()['first_name'] }}</strong>.<br/>Welcome to codesaur framework!`;
 </script>
-
